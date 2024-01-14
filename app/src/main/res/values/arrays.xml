@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="codigoPais">
+        <item>ES</item>
+        <item>US</item>
+        <item>JP</item>
+        <item>FR</item>
+        <item>DE</item>
+    </array>
+</resources>

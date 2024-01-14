@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/logInFragment">
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.example.monedero.ui.LogInFragment"
+        android:label="Iniciar sesión"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_accountListFragment"
+            app:destination="@id/accountListFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_fragmentProgressDialog"
+            app:destination="@id/fragmentProgressDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/fragmentProgressDialog"
+        android:name="com.example.monedero.FragmentProgressDialog"
+        android:label="FragmentProgressDialog" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.monedero.ui.SignUpFragment"
+        android:label="Crear usuario"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_fragmentProgressDialog"
+            app:destination="@id/fragmentProgressDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountListFragment"
+        android:name="com.example.monedero.ui.AccountListFragment"
+        android:label="Lista de cuentas"
+        tools:layout="@layout/fragment_account_list" >
+        <action
+            android:id="@+id/action_accountListFragment_to_fragmentProgressDialog"
+            app:destination="@id/fragmentProgressDialog" />
+        <action
+            android:id="@+id/action_accountListFragment_to_accountCreationFragment"
+            app:destination="@id/accountCreationFragment" />
+        <action
+            android:id="@+id/action_accountListFragment_to_detallesCuentaFragment"
+            app:destination="@id/detallesCuentaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountCreationFragment"
+        android:name="com.example.monedero.ui.AccountCreationFragment"
+        android:label="Creación de cuenta"
+        tools:layout="@layout/fragment_account_creation" >
+        <action
+            android:id="@+id/action_accountCreationFragment_to_fragmentProgressDialog"
+            app:destination="@id/fragmentProgressDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallesCuentaFragment"
+        android:name="com.example.monedero.ui.DetallesCuentaFragment"
+        android:label="Cuenta personal"
+        tools:layout="@layout/fragment_detalles_cuenta" >
+        <action
+            android:id="@+id/action_detallesCuentaFragment_to_fragmentProgressDialog"
+            app:destination="@id/fragmentProgressDialog" />
+    </fragment>
+</navigation>

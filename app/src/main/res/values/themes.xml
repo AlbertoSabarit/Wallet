@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Monedero" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorSecondary">@color/colorNaranja</item>
+        <item name="colorPrimary">@color/colorAzul</item>
+    </style>
+
+    <style name="Theme.Monedero" parent="Base.Theme.Monedero" />
+</resources>

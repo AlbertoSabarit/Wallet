@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.monedero.usecase.CuentaCreationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey"
+        tools:context=".ui.AccountCreationFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/_30dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/_30dp" />
+
+        <TextView
+            android:id="@+id/txtIntroduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Introduce el número de cuenta: "
+            android:textColor="@color/colorAzul"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <Spinner
+            android:id="@+id/spCodigo"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:backgroundTint="@color/colorAzul"
+            android:entries="@array/codigoPais"
+            android:popupTheme="@style/SpinnerPopupTheme"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/txtIntroduce" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEntidad"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:textColorHint="@color/colorAzul"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/spCodigo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieEntidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Entidad"
+                android:inputType="number"
+                android:maxLength="4"
+                android:text="@={viewmodel.entidad}"
+                android:textColor="@color/colorAzul"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilOficina"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColorHint="@color/colorAzul"
+            app:layout_constraintBottom_toBottomOf="@+id/tilEntidad"
+            app:layout_constraintStart_toEndOf="@+id/tilEntidad"
+            app:layout_constraintTop_toTopOf="@+id/tilEntidad">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieOficina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewmodel.oficina}"
+                android:hint="Oficina"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="@color/colorAzul"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDC"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColorHint="@color/colorAzul"
+            app:layout_constraintBottom_toBottomOf="@+id/tilOficina"
+            app:layout_constraintStart_toEndOf="@+id/tilOficina"
+            app:layout_constraintTop_toTopOf="@+id/tilOficina">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieDC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewmodel.dc}"
+                android:hint="DC"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="@color/colorAzul"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNCuenta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColorHint="@color/colorAzul"
+            app:layout_constraintBottom_toBottomOf="@+id/tilDC"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/tilDC"
+            app:layout_constraintTop_toTopOf="@+id/tilDC">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieNCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewmodel.numeroCuenta}"
+                android:hint="Numero cuenta"
+                android:inputType="number"
+                android:maxLength="10"
+                android:textColor="@color/colorAzul"
+                android:textSize="13sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnCrearCuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="256dp"
+            android:text="Crear cuenta"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/tilDC" />
+
+        <TextView
+            android:id="@+id/txtEntidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Entidad"
+            android:textColor="@color/colorAzul"
+            app:layout_constraintEnd_toEndOf="@+id/tilEntidad"
+            app:layout_constraintStart_toStartOf="@+id/tilEntidad"
+            app:layout_constraintTop_toBottomOf="@+id/tilEntidad" />
+
+        <TextView
+            android:id="@+id/txtOficina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Oficina"
+            android:textColor="@color/colorAzul"
+            app:layout_constraintEnd_toEndOf="@+id/tilOficina"
+            app:layout_constraintStart_toStartOf="@+id/tilOficina"
+            app:layout_constraintTop_toBottomOf="@+id/tilOficina" />
+
+        <TextView
+            android:id="@+id/txtDC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="DC"
+            android:textColor="@color/colorAzul"
+            app:layout_constraintEnd_toEndOf="@+id/tilDC"
+            app:layout_constraintStart_toStartOf="@+id/tilDC"
+            app:layout_constraintTop_toBottomOf="@+id/tilDC" />
+
+        <TextView
+            android:id="@+id/txtNCuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Número de cuenta"
+            android:textColor="@color/colorAzul"
+            app:layout_constraintEnd_toEndOf="@+id/tilNCuenta"
+            app:layout_constraintStart_toStartOf="@+id/tilNCuenta"
+            app:layout_constraintTop_toBottomOf="@+id/tilNCuenta" />
+
+        <TextView
+            android:id="@+id/tvErrorCuentaExiste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="La cuenta ya existe."
+            android:textSize="@dimen/_20dp"
+            android:visibility="invisible"
+            android:textColor="@color/rojo"
+            app:layout_constraintBottom_toTopOf="@+id/btnCrearCuenta"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/txtDC" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

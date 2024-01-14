@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.monedero.usecase.CuentaDetalleViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey"
+        tools:context=".ui.DetallesCuentaFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/_30dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/_30dp" />
+
+        <TextView
+            android:id="@+id/txtNumeroCuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="IBAN"
+            android:textColor="@color/gold"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <TextView
+            android:id="@+id/tvNumeroIBAN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="496dp"
+            android:text=""
+            android:textColor="@color/colorAzul"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtNumeroCuenta"
+            app:layout_constraintTop_toBottomOf="@+id/txtNumeroCuenta" />
+
+        <TextView
+            android:id="@+id/txtSaldoDisponible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Saldo disponible: "
+            android:textColor="@color/colorAzul"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tvNumeroIBAN"
+            app:layout_constraintTop_toBottomOf="@+id/tvNumeroIBAN" />
+
+        <TextView
+            android:id="@+id/tvSaldo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="TextView"
+            android:textColor="@color/colorAzul"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtSaldoDisponible"
+            app:layout_constraintStart_toEndOf="@+id/txtSaldoDisponible"
+            app:layout_constraintTop_toTopOf="@+id/txtSaldoDisponible" />
+
+        <TextView
+            android:id="@+id/txtIngresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginBottom="192dp"
+            android:text="Ingresar"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/txtSaldoDisponible" />
+
+        <TextView
+            android:id="@+id/txtRetirar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="192dp"
+            android:text="Retirar"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/tvSaldo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilIngresar"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            android:textColorHint="@color/gold"
+            app:layout_constraintEnd_toEndOf="@+id/txtIngresar"
+            app:layout_constraintStart_toStartOf="@+id/txtIngresar"
+            app:layout_constraintTop_toBottomOf="@+id/txtIngresar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieIngresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingresar"
+                android:text="@={viewmodel.ingresar}"
+                android:textColor="@color/gold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilRetirar"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            android:textColorHint="@color/gold"
+            app:layout_constraintEnd_toEndOf="@+id/txtRetirar"
+            app:layout_constraintStart_toStartOf="@+id/txtRetirar"
+            app:layout_constraintTop_toBottomOf="@+id/txtRetirar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieRetirar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Retirar"
+                android:text="@={viewmodel.retirar}"
+                android:textColor="@color/gold"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="96dp"
+            android:backgroundTint="@color/gold"
+            android:text="Ingresar"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="@+id/tilIngresar"
+            app:layout_constraintStart_toStartOf="@+id/tilIngresar"
+            app:layout_constraintTop_toBottomOf="@+id/tilIngresar" />
+
+        <Button
+            android:id="@+id/btnRetirar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="96dp"
+            android:backgroundTint="@color/gold"
+            android:text="Retirar"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="@+id/tilRetirar"
+            app:layout_constraintStart_toStartOf="@+id/tilRetirar"
+            app:layout_constraintTop_toBottomOf="@+id/tilRetirar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
